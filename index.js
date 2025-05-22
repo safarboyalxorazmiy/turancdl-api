@@ -62,7 +62,7 @@ app.get('/', (req, res) => {
 });
 
 // POST /visit route - sends message to all admins
-app.post('/visit', (req, res) => {
+app.post('/interest/visit', (req, res) => {
   const { ip, city, region } = req.body;
   if (!ip || !city || !region) {
     return res.status(400).json({ error: 'ip, city, and region are required' });
