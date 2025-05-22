@@ -53,7 +53,7 @@ bot.on('message', (msg) => {
   if (!text) return;
 
   if (text === '/start') {
-    bot.sendMessage(chatId, 'Knock knock. Who the fuck are you? Get lost. 🖕');
+    bot.sendMessage(chatId, '\nKnock knock... \n-Who the fuck are you? Get out.');
     return;
   }
 
