@@ -31,8 +31,8 @@ const pool = new Pool({
     await pool.query(`
       CREATE TABLE IF NOT EXISTS contacts (
         id SERIAL PRIMARY KEY,
-        firstName TEXT,
-        lastName TEXT,
+        first_name TEXT,
+        last_name TEXT,
         email TEXT,
         phone TEXT,
         city TEXT,
@@ -125,10 +125,11 @@ app.post('/interest/contact', async (req, res) => {
 
   try {
     const { rows: contactRows } = await pool.query(
-      `INSERT INTO contacts (firstName, lastName, email, phone, city)
-       VALUES ($1, $2, $3, $4, $5) RETURNING id`,
+      `INSERT INTO contacts (first_name, last_name, email, phone, city)
+      VALUES ($1, $2, $3, $4, $5) RETURNING id`,
       [firstName, lastName, email, phone, city]
     );
+
 
     const contactId = contactRows[0].id;
 
